@@ -4,7 +4,7 @@ services:
     image: mysql:8.0
     container_name: industria-db
     restart: unless-stopped
-    command: '--default-authentication-plugin=mysql_native_password'
+    # command: '--default-authentication-plugin=mysql_native_password'
     environment:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
@@ -15,7 +15,7 @@ services:
     # depends_on:
     #   - app
     volumes:
-      - db-volume2:/var/lib/mysql
+      - db-volume:/var/lib/mysql
     ports:
       - 3306:3306
       # SERVICE_TAGS: dev
@@ -43,4 +43,4 @@ networks:
     driver: bridge
 
 volumes:
-  db-volume2:
+  db-volume:
