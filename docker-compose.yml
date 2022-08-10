@@ -4,6 +4,7 @@ services:
     image: mysql:8.0
     container_name: industria-db
     restart: unless-stopped
+    command: '--default-authentication-plugin=mysql_native_password'
     environment:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
@@ -11,8 +12,8 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     networks:
       - industria
-    depends_on:
-      - app
+    # depends_on:
+    #   - app
     volumes:
       - db-volume2:/var/lib/mysql
     ports:
