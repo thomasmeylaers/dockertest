@@ -6,16 +6,20 @@ services:
     restart: unless-stopped
     command: '--default-authentication-plugin=mysql_native_password'
     environment:
-      MYSQL_DATABASE: wp
-      MYSQL_USER: wp
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
-    networks:
+      # MYSQL_DATABASE: wp
+      # MYSQL_USER: wp
+      # MYSQL_PASSWORD: secret
+      # MYSQL_ROOT_PASSWORD: secret
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=wp
+      - MYSQL_USER=wp
+      - MYSQL_PASSWORD=secret
+  networks:
       - industria
     # depends_on:
     #   - app
     volumes:
-      - db-volume:/var/lib/mysql
+      - db-volume3:/var/lib/mysql
     ports:
       - 3306:3306
       # SERVICE_TAGS: dev
@@ -43,4 +47,4 @@ networks:
     driver: bridge
 
 volumes:
-  db-volume:
+  db-volume3:
