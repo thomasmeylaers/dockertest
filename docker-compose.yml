@@ -1,10 +1,10 @@
 version: "3.9"
 services:
   db:
-    image: mariadb:10.6.4-focal
+    image: mysql:8.0
     container_name: industria-db
     restart: unless-stopped
-    command: '--default-authentication-plugin=mysql_native_password'
+    # command: '--default-authentication-plugin=mysql_native_password'
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=wp
