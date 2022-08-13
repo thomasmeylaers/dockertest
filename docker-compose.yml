@@ -15,7 +15,7 @@ services:
     # depends_on:
     #   - app
     volumes:
-      - db-volume:/var/lib/mysql
+      - db-volume-reset:/var/lib/mysql
     ports:
       - 3306:3306
       # SERVICE_TAGS: dev
@@ -40,4 +40,4 @@ networks:
     driver: bridge
 
 volumes:
-  db-volume:
+  db-volume-reset:
